@@ -1,5 +1,6 @@
 package com.example.tugaspertemuan5_pam
 
+import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -18,4 +19,7 @@ fun FormBiodata(modifier: Modifier){
     var checkAndroid by remember { mutableStateOf(false) }
     var checkUiUx by remember { mutableStateOf(false) }
     var checkWeb by remember { mutableStateOf(false) }
+
+    var showDatePicker by remember { mutableStateOf(false) }
+    val datePickerState = rememberDatePickerState()
 }
