@@ -34,7 +34,7 @@ fun FormBiodata(modifier: Modifier){
     val datePickerState = rememberDatePickerState()
 
     var expandedExperience by remember { mutableStateOf(false) }
-    val experienceOptions = listOf("Beginner", "Intermediate", "Advanced", "Expert")
+    val experienceOptions = listOf("1 Tahun", "2 Tahun", "3 Tahun", "4 Tahun")
 
     val isProceedEnabled = textNamaDepan.isNotEmpty() &&
             textNamaBelakang.isNotEmpty() &&
@@ -51,7 +51,14 @@ fun FormBiodata(modifier: Modifier){
                 .padding(innerPadding)
         ) {
 
-
+            Image(
+                painter = painterResource(id = R.drawable.foto_bg),
+                contentDescription = stringResource(id = R.string.bg),
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight(0.45f)
+            )
         }
     }
 }
