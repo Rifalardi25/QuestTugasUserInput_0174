@@ -15,4 +15,5 @@
     <string name="bg">Background</string>
     <string name="calendar">Ikon Kalender</string>
     <string name="dropdown">Ikon Dropdown</string>
+    <string name="data_tersimpan">Data Tersimpan</string>
 </resources>
