@@ -7,4 +7,5 @@
     <string name="email">Email</string>
     <string name="tanggal_lahir">Tanggal Lahir</string>
     <string name="experience">Experience</string>
+    <string name="pilih_skill">Pilih Skill Anda :</string>
 </resources>
