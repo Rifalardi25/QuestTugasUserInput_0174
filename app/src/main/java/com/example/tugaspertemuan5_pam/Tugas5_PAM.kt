@@ -4,12 +4,16 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -24,6 +28,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 
 @Composable
 fun FormBiodata(modifier: Modifier){
@@ -49,13 +54,11 @@ fun FormBiodata(modifier: Modifier){
             textTglLahir.isNotEmpty() &&
             textExperience.isNotEmpty()
 
-    Scaffold(modifier = modifier.fillMaxSize())
-    { innerPadding ->
+
 
         Box(
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxSize()
-                .padding(innerPadding)
         ) {
 
             Image(
@@ -89,9 +92,21 @@ fun FormBiodata(modifier: Modifier){
                         ),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-
+                    Text(
+                        text = stringResource(id = R.string.form_biodata),
+                        color = colorResource(id = R.color.blue_title),
+                        style = MaterialTheme.typography.headlineMedium,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
+                    Text(
+                        text = stringResource(id = R.string.subjudul_form_biodata),
+                        color = colorResource(id = R.color.gray_subtitle),
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_large)))
                   }
               }
         }
-    }
+
 }
