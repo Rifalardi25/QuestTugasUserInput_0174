@@ -6,4 +6,5 @@
     <dimen name="padding_xlarge">24dp</dimen>
     <dimen name="corner_radius_medium">12dp</dimen>
     <dimen name="corner_radius_large">32dp</dimen>
+    <dimen name="button_height">50dp</dimen>
 </resources>
