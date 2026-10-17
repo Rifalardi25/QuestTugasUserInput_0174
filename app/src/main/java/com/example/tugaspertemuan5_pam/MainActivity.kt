@@ -20,8 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             TugasPertemuan5_PAMTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    FormBiodata(
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
