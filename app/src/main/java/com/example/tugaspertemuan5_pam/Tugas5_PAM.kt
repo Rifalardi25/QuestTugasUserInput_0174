@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -20,6 +21,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
+import androidx.compose.material3.Button
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.DatePicker
 import androidx.compose.material3.DatePickerDialog
 import androidx.compose.material3.DropdownMenuItem
@@ -43,6 +46,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import java.util.Calendar
 import java.util.Locale
@@ -237,6 +241,60 @@ fun FormBiodata(modifier: Modifier){
                         }
 
                      }
+                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_large)))
+
+                    Text(
+                        text = stringResource(id = R.string.pilih_skill),
+                        modifier = Modifier.fillMaxWidth(),
+                        fontWeight = FontWeight.Bold,
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.toggleable(
+                                value = checkAndroid,
+                                onValueChange = { checkAndroid = it },
+                                role = Role.Checkbox
+                            )
+                        ) {
+                            Checkbox(checked = checkAndroid, onCheckedChange = null)
+                            Text(text = stringResource(id = R.string.skill_android), style = MaterialTheme.typography.bodySmall)
+                        }
+
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.toggleable(
+                                value = checkUiUx,
+                                onValueChange = { checkUiUx = it },
+                                role = Role.Checkbox
+                            )
+                        ) {
+                            Checkbox(checked = checkUiUx, onCheckedChange = null)
+                            Text(text = stringResource(id = R.string.skill_ui_ux), style = MaterialTheme.typography.bodySmall)
+                        }
+
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.toggleable(
+                                value = checkWeb,
+                                onValueChange = { checkWeb = it },
+                                role = Role.Checkbox
+                            )
+                        ) {
+                            Checkbox(checked = checkWeb, onCheckedChange = null)
+                            Text(text = stringResource(id = R.string.skill_web), style = MaterialTheme.typography.bodySmall)
+                        }
+                    }
+                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_xlarge)))
+
+
                   }
               }
         }
