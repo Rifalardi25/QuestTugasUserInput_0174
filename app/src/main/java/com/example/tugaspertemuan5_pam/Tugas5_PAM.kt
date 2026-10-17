@@ -70,6 +70,13 @@ fun FormBiodata(modifier: Modifier){
     var expandedExperience by remember { mutableStateOf(false) }
     val experienceOptions = listOf("1 Tahun", "2 Tahun", "3 Tahun", "4 Tahun")
 
+    var submittedNama by remember { mutableStateOf("") }
+    var submittedEmail by remember { mutableStateOf("") }
+    var submittedTglLahir by remember { mutableStateOf("") }
+    var submittedExperience by remember { mutableStateOf("") }
+    var submittedSkills by remember { mutableStateOf("") }
+    var showResult by remember { mutableStateOf(false) }
+
     val isProceedEnabled = (
             textNamaDepan.isNotEmpty() &&
             textNamaBelakang.isNotEmpty() &&
