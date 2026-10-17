@@ -3,4 +3,5 @@
     <string name="form_biodata">Form Biodata</string>
     <string name="subjudul_form_biodata">Silahkan isi biodata Anda dibawah ini !!!</string>
     <string name="nama_depan">Nama Depan</string>
+    <string name="nama_belakang">Nama Belakang</string>
 </resources>
