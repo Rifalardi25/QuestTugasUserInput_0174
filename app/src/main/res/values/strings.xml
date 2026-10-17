@@ -14,4 +14,5 @@
     <string name="btn_proceed">Proceed</string>
     <string name="bg">Background</string>
     <string name="calendar">Ikon Kalender</string>
+    <string name="dropdown">Ikon Dropdown</string>
 </resources>
