@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
@@ -27,6 +28,8 @@ import androidx.compose.material3.DatePicker
 import androidx.compose.material3.DatePickerDialog
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Scaffold
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.rememberDatePickerState
@@ -113,7 +116,7 @@ fun FormBiodata(modifier: Modifier){
             ) {
                 Column(
                     modifier = Modifier
-                        .fillMaxSize()
+                        .verticalScroll(rememberScrollState())
                         .padding(
                             horizontal = dimensionResource(id = R.dimen.padding_large),
                             vertical = dimensionResource(id = R.dimen.padding_xlarge)
@@ -256,6 +259,7 @@ fun FormBiodata(modifier: Modifier){
                         fontWeight = FontWeight.Bold,
                         style = MaterialTheme.typography.bodyMedium
                     )
+                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_large)))
 
                     Row(
                         modifier = Modifier.fillMaxWidth(),
@@ -300,8 +304,62 @@ fun FormBiodata(modifier: Modifier){
                         }
                     }
                     Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_xlarge)))
+                    val strAndroid = stringResource(id = R.string.skill_android)
+                    val strUiUx = stringResource(id = R.string.skill_ui_ux)
+                    val strWeb = stringResource(id = R.string.skill_web)
 
+                    Button(
+                        onClick = {
+                            submittedNama = "$textNamaDepan $textNamaBelakang"
+                            submittedEmail = textEmail
+                            submittedTglLahir = textTglLahir
+                            submittedExperience = textExperience
 
+                            val skills = mutableListOf<String>()
+
+                            if (checkAndroid) skills.add(strAndroid)
+                            if (checkUiUx) skills.add(strUiUx)
+                            if (checkWeb) skills.add(strWeb)
+
+                            submittedSkills = if (skills.isNotEmpty()) skills.joinToString(", ") else "-"
+
+                            showResult = true
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(dimensionResource(id = R.dimen.button_height)),
+                        enabled = isProceedEnabled,
+                        shape = RoundedCornerShape(dimensionResource(id = R.dimen.corner_radius_large))
+                    ) {
+                        Text(stringResource(id = R.string.btn_proceed))
+                    }
+                    if (showResult) {
+                        Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_xlarge)))
+
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clip(RoundedCornerShape(dimensionResource(id = R.dimen.corner_radius_medium)))
+                                .background(colorResource(id = R.color.black)) // Pastikan warna hitam didefinisikan di colors.xml
+                                .padding(dimensionResource(id = R.dimen.padding_large))
+                        ) {
+                            Column(verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_small))) {
+                                Text(
+                                    text = stringResource(id = R.string.data_tersimpan),
+                                    color = colorResource(id = R.color.white),
+                                    fontWeight = FontWeight.Bold,
+                                    style = MaterialTheme.typography.titleMedium
+                                )
+                                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
+
+                                Text(text = "Nama : $submittedNama", color = colorResource(id = R.color.white), style = MaterialTheme.typography.bodyMedium)
+                                Text(text = "Email : $submittedEmail", color = colorResource(id = R.color.white), style = MaterialTheme.typography.bodyMedium)
+                                Text(text = "Tanggal Lahir : $submittedTglLahir", color = colorResource(id = R.color.white), style = MaterialTheme.typography.bodyMedium)
+                                Text(text = "Pengalaman : $submittedExperience", color = colorResource(id = R.color.white), style = MaterialTheme.typography.bodyMedium)
+                                Text(text = "Keahlian : $submittedSkills", color = colorResource(id = R.color.white), style = MaterialTheme.typography.bodyMedium)
+                            }
+                        }
+                    }
                   }
               }
         }
