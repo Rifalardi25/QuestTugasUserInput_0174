@@ -22,4 +22,7 @@ fun FormBiodata(modifier: Modifier){
 
     var showDatePicker by remember { mutableStateOf(false) }
     val datePickerState = rememberDatePickerState()
+
+    var expandedExperience by remember { mutableStateOf(false) }
+    val experienceOptions = listOf("Beginner", "Intermediate", "Advanced", "Expert")
 }
